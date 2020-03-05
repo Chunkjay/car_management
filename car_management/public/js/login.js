@@ -32,6 +32,7 @@ var vm = new Vue({
           // console.log(result)
           if(result.data.status != 10000){
             layer.alert(`错误代码：${result.data.status}<br>错误信息：${result.data.msg}`)
+            vm.upcaptcha()
             return
           }else{
             location.href = '../index.html'
