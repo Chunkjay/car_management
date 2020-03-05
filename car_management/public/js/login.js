@@ -27,7 +27,7 @@ var vm = new Vue({
         }).then(function(result){
           // console.log(result)
           if(result.data.status != 10000){
-            alert(`错误代码：${result.data.status}\n错误信息：${result.data.msg}`)
+            layer.alert(`错误代码：${result.data.status}\n错误信息：${result.data.msg}`)
             return
           }else{
             location.href = '../index.html'
@@ -35,7 +35,7 @@ var vm = new Vue({
 
         })
       }else{
-        alert('验证码错误！请重新输入')
+        layer.alert('验证码错误！请重新输入')
         this.upcaptcha()
       }
     },
