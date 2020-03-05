@@ -1,0 +1,109 @@
+var vm = new Vue({
+  el:'#app',
+  data:{
+    adminName:'',
+    time:'',
+    adminPassword:'',
+    newPassword:'',
+    newPasswordVerify:''
+  },//data数据结束
+  methods:{
+    getDate(){
+      var curtime = new Date()
+      // console.log(curtime)
+      var hh = curtime.getHours()
+      // console.log(hh)
+      var mm = curtime.getMinutes()
+      // console.log(mm)
+      var ss = curtime.getSeconds()<10?`0${curtime.getSeconds()}`:curtime.getSeconds()
+      // console.log(ss)
+      // console.log(`${hh}:${mm}:${ss}`)
+      
+      var month = curtime.getMonth()+1<10?`0${curtime.getMonth()+1}`:curtime.getMonth()+1
+      // console.log(month)
+      var day = curtime.getDate()<10?`0${curtime.getDate()}`:curtime.getDate()
+      // console.log(day)
+      var year = curtime.getFullYear()
+      // console.log(year)
+      var week = curtime.getDay()
+      switch(week){
+        case 1:week = 'Monday';break
+        case 2:week = 'Tuesday';break
+        case 3:week = 'Wednesday';break
+        case 4:week = 'Thursday';break
+        case 5:week = 'Friday';break
+        case 6:week = 'Saturday';break
+        case 7:week = 'Sunday';break
+      }
+      // console.log(week)
+      this.time = `The ${week}   ${month}/${day}/${year}   ${hh}:${mm}:${ss}`
+    },
+    getAdminName(){
+      var token = this.getCookie('token')//请求adminName
+      // console.log(token)
+      if(!token){
+        return
+      }
+      axios.post('/login',{
+        token:token
+      }).then(function(result){
+        if(result.data.status != 10000){
+          layer.alert('您还没有登录呢！！点击去登录吧')
+          return
+        }else{
+          vm.adminName = result.data.adminName
+        }
+      })
+    },
+    revisePassword(){
+      vm.adminPassword =vm.newPassword =vm.newPasswordVerify =''
+      layer.open({
+				type: 1,
+				skin: 'layui-layer-molv',
+				title: "修改密码",
+				area: ['550px', '320px'],
+				shadeClose: false,
+				content: jQuery("#passwordLayer"),
+				btn: ['修改','取消'],
+				btn1: function (index) {
+          if(vm.newPassword=="" || vm.adminPassword=='' || vm.newPasswordVerify==''){
+            layer.msg('请输入信息后点击确定')
+          }
+          if(vm.newPassword != vm.newPasswordVerify){
+            layer.msg('确认密码与新密码不符合！')
+            return
+          }
+          axios.post('/rePassword',{
+            adminName:vm.adminName,
+            adminPassword:vm.adminPassword,
+            newPassword:vm.newPassword
+          }).then(function(result){
+            if(result.data.status != 10000){
+              layer.alert(`错误代码：${result.data.status}<br>错误信息：${result.data.msg}`)
+              return
+            }
+            layer.alert('修改密码成功！')
+          })
+          layer.closeAll()
+        }
+			});
+    },
+    getCookie(key){
+      // console.log(key)
+      var arr1 = document.cookie.split(';')
+      // console.log(arr1)
+      for(var i = 0;i < arr1.length;i++){
+        var arr2 = arr1[i].split('=')
+        // console.log(arr2[0]+'.....'+arr2[0].length)
+        if(arr2[0] == " "+key){
+          return arr2[1]
+        }
+      }
+    }
+  },//methods方法结束
+  created(){
+    //时间的更新
+    setInterval(this.getDate,1000)
+    this.getAdminName()
+  }
+})

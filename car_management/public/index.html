@@ -6,11 +6,66 @@
   <link rel="shortcut icon" href="./image/logo_favicon.ico">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index.css">
   <title>汽车网上用品销售管理系统</title>
 </head>
 <body>
   <div id="app">
+    <header>
+      <div class="left">汽车网上用品销售管理系统</div>
+      <div class="right">
+        <span>{{time}}</span><br>
+        <span v-show="adminName">欢迎<span>{{adminName}}</span></span>
+        <span v-show="!adminName"><a href="./login.html">去登录</a>&nbsp;&nbsp;</span>
+        <span v-show="adminName">&nbsp;&nbsp;<a href="javascript:void(0)" @click="revisePassword()">修改密码</a></span>
+      </div>
+    </header>
+    <aside>
+      <ul>
+        <li><a href="javascript:void(0)">系统用户管理</a></li>
+        <li><a href="javascript:void(0)">商品信息管理</a></li>
+        <li><a href="javascript:void(0)">订单及结账管理</a></li>
+        <li><a href="javascript:void(0)">物流配送</a></li>
+        <li><a href="javascript:void(0)">公告管理</a></li>
+        <li><a href="javascript:void(0)">售后与顾客服务</a></li>
+      </ul>
+    </aside>
+    <main>
+      <header></header>
+      <main></main>
+    </main>
 
+    <!-- 修改密码弹窗 -->
+    <div id="passwordLayer" style="display: none;">
+      <form class="form-horizontal" >
+        <div class="from-group" style="width: 520px;margin-top: 20px;">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">用户姓名</label>
+            <div class="col-sm-6">
+              <label class="control-label">{{adminName}}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword" class="col-sm-4 control-label">旧密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="adminPassword" name="adminPassword" v-model="adminPassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword" class="col-sm-4 control-label">新密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="newPassword" name="newPassword" v-model="newPassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPasswordVerify" class="col-sm-4 control-label">确认密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="newPasswordVerify" name="newPasswordVerify" v-model="newPasswordVerify">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>

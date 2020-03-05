@@ -26,6 +26,8 @@ var vm = new Vue({
           document.cookie = `token=${result.data}`
         })
         var token = this.getCookie('token')
+        // console.log(token)//在这里 cookie 还没有设置好，取不到 token 的值。
+        if(!token)return
         axios.post('/login',{
           token:token
         }).then(function(result){
@@ -56,5 +58,5 @@ var vm = new Vue({
         }
       }
     }
-  }
+  }//methods方法结束
 })
