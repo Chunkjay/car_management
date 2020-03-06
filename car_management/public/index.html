@@ -22,17 +22,25 @@
     </header>
     <aside>
       <ul>
-        <li><a href="javascript:void(0)">系统用户管理</a></li>
-        <li><a href="javascript:void(0)">商品信息管理</a></li>
-        <li><a href="javascript:void(0)">订单及结账管理</a></li>
-        <li><a href="javascript:void(0)">物流配送</a></li>
-        <li><a href="javascript:void(0)">公告管理</a></li>
-        <li><a href="javascript:void(0)">售后与顾客服务</a></li>
+        <li @click="toWelcome()" title="汽车网上用品销售管理系统"><a href="javascript:void(0)">汽车网上用品销售管理系统</a></li>
+        <li @click="toUser()" title="系统用户管理"><span class="iconfont">&#xe602;</span><a href="javascript:void(0)">系统用户管理</a></li>
+        <li @click="toProduct()" title="商品信息管理"><span class="iconfont">&#xe600;</span><a href="javascript:void(0)">商品信息管理</a></li>
+        <li @click="toOrder()" title="订单及结账管理"><span class="iconfont">&#xe601;</span><a href="javascript:void(0)">订单及结账管理</a></li>
+        <li @click="toLogistics()" title="物流配送"><span class="iconfont">&#xe718;</span><a href="javascript:void(0)">物流配送</a></li>
+        <li @click="toAnnouncement()" title="公告管理"><span class="iconfont">&#xe6a0;</span><a href="javascript:void(0)">公告管理</a></li>
+        <li @click="toService()" title="售后与顾客服务"><span class="iconfont">&#xe61e;</span><a href="javascript:void(0)">售后与顾客服务</a></li>
       </ul>
     </aside>
     <main>
-      <header></header>
-      <main></main>
+      <header>
+        <span class="iconfont">&#xe603;</span>
+        <span v-show="firstLevel" :title="firstLevel">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="1" ref="dataSelf">{{firstLevel}}</a></span>
+        <span v-show="secondLevel" :title="secondLevel">&nbsp;>&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="2" ref="dataSelf">{{secondLevel}}</a></span>
+        <span v-show="thirdLevel" :title="thirdLevel">&nbsp;>&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="3" ref="dataSelf">{{thirdLevel}}</a></span>
+      </header>
+      <main>
+        <iframe :src="sysHtml"></iframe>
+      </main>
     </main>
 
     <!-- 修改密码弹窗 -->

@@ -38,7 +38,8 @@ router.post('/encry',function(req,res,next){
 
 //登录
 router.post('/',function(req,res,next){
-  var admin = decodeToken(req.body.token)
+  try {
+    var admin = decodeToken(req.body.token)
   // console.log(admin)
   var adminName = admin.adminName
   var adminPassword = admin.adminPassword
@@ -67,6 +68,13 @@ router.post('/',function(req,res,next){
       }
     })
   })
+  } catch (error) {
+    res.send({
+      status:10004,
+      msg:'登录时间过长，请重新登录'
+    })
+  }
+  
 })
 
 

@@ -1,0 +1,58 @@
+{
+  "id": "1673540",
+  "name": "car_management",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1793799",
+      "name": "汽车",
+      "font_class": "qiche",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "3465485",
+      "name": "售后",
+      "font_class": "shouhou",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "3685864",
+      "name": "物流",
+      "font_class": "wuliu",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "4667332",
+      "name": "订 单",
+      "font_class": "dingdan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11609884",
+      "name": "公告",
+      "font_class": "gonggao",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "11803273",
+      "name": "管理系统-角色管理",
+      "font_class": "guanlixitong-jiaoseguanli",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "13198377",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    }
+  ]
+}

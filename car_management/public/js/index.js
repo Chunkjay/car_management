@@ -5,7 +5,12 @@ var vm = new Vue({
     time:'',
     adminPassword:'',
     newPassword:'',
-    newPasswordVerify:''
+    newPasswordVerify:'',
+    sysHtml:'',
+    firstLevel:'',
+    secondLevel:'',
+    thirdLevel:'',
+    arr:[]
   },//data数据结束
   methods:{
     getDate(){
@@ -13,7 +18,7 @@ var vm = new Vue({
       // console.log(curtime)
       var hh = curtime.getHours()
       // console.log(hh)
-      var mm = curtime.getMinutes()
+      var mm = curtime.getMinutes()<10?`0${curtime.getMinutes()}`:curtime.getMinutes()
       // console.log(mm)
       var ss = curtime.getSeconds()<10?`0${curtime.getSeconds()}`:curtime.getSeconds()
       // console.log(ss)
@@ -42,13 +47,14 @@ var vm = new Vue({
       var token = this.getCookie('token')//请求adminName
       // console.log(token)
       if(!token){
+        layer.alert('您还没有登录，点击去登录吧！！')
         return
       }
       axios.post('/login',{
         token:token
       }).then(function(result){
         if(result.data.status != 10000){
-          layer.alert('您还没有登录呢！！点击去登录吧')
+          layer.alert(`错误代码：${result.data.status}<br>错误信息：${result.data.msg}`)
           return
         }else{
           vm.adminName = result.data.adminName
@@ -99,11 +105,67 @@ var vm = new Vue({
           return arr2[1]
         }
       }
+    },
+    toWelcome(){
+      this.sysHtml = '../sys/welconme.html'
+      this.firstLevel = '汽车网上用品销售管理系统'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+      // console.log(this.arr)
+    },
+    toUser(){
+      this.sysHtml = '../sys/user.html'
+      this.firstLevel = '系统用户管理'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toProduct(){
+      this.sysHtml = '../sys/product.html'
+      this.firstLevel = '商品信息管理'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toOrder(){
+      this.sysHtml = '../sys/order.html'
+      this.firstLevel = '订单及结账管理'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toLogistics(){
+      this.sysHtml = '../sys/logistics.html'
+      this.firstLevel = '物流配送'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toAnnouncement(){
+      this.sysHtml = '../sys/announcement.html'
+      this.firstLevel = '公告管理'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toService(){
+      this.sysHtml = '../sys/service.html'
+      this.firstLevel = '售后与顾客服务'
+      this.arr = [{id:1,sysHtml:this.sysHtml}]
+    },
+    toSkip(e){
+      var index = Number(e.target.dataset.index)
+      // console.log(index)
+      // console.log(this.arr)
+      var currentTag = this.arr.filter(item => {
+        if(item.id === index){
+          return item
+        }
+      })
+      // console.log(currentTag)
+      // console.log(currentTag[0])
+      this.sysHtml = currentTag[0].sysHtml
+      // console.log(this.sysHtml)
+      switch(index){
+        case 1:this.secondLevel = this.thirdLevel = '';break;
+        case 2:this.thirdLevel = '';break;
+      }
     }
   },//methods方法结束
   created(){
     //时间的更新
     setInterval(this.getDate,1000)
     this.getAdminName()
+    setTimeout(this.getAdminName,60*30*1000)
+    this.toWelcome()
   }
 })

@@ -27,7 +27,14 @@ var vm = new Vue({
         })
         var token = this.getCookie('token')
         // console.log(token)//在这里 cookie 还没有设置好，取不到 token 的值。
-        if(!token)return
+        console.log(token)
+        if(!token){
+          layer.alert('请再次输入密码进行登录')
+          vm.adminPassword = ''
+          vm.adminVertify = ''
+          vm.upcaptcha()
+          return
+        }
         axios.post('/login',{
           token:token
         }).then(function(result){
