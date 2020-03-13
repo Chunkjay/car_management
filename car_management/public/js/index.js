@@ -16,7 +16,7 @@ var vm = new Vue({
     getDate(){
       var curtime = new Date()
       // console.log(curtime)
-      var hh = curtime.getHours()
+      var hh = curtime.getHours()<10?`0${curtime.getHours()}`:curtime.getHours()
       // console.log(hh)
       var mm = curtime.getMinutes()<10?`0${curtime.getMinutes()}`:curtime.getMinutes()
       // console.log(mm)
@@ -165,7 +165,6 @@ var vm = new Vue({
     //时间的更新
     setInterval(this.getDate,1000)
     this.getAdminName()
-    setTimeout(this.getAdminName,60*30*1000)
     this.toWelcome()
   }
 })

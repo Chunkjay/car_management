@@ -39,7 +39,7 @@ router.post('/encry',function(req,res,next){
 //登录
 router.post('/',function(req,res,next){
   try {
-    var admin = decodeToken(req.body.token)
+    var admin = decodeToken(req.body.token)//当时间过长，已经不能解密此 token 会报错！！！
   // console.log(admin)
   var adminName = admin.adminName
   var adminPassword = admin.adminPassword

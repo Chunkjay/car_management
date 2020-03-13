@@ -6,7 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
-var registerRouter = require('./routes/register')
+var registerRouter = require('./routes/register');
+var postUserListRouter = require('./routes/sys/user')
 
 var app = express();
 
@@ -22,8 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/register',registerRouter)
-app.get('/ok',function(req,res){res.send('')})
+app.use('/register',registerRouter);
+app.use('/postUserList',postUserListRouter);//获取用户列表
+app.get('/ok',function(req,res){res.send('')})//解决报错，无意义
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

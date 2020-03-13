@@ -18,15 +18,15 @@
         
         <div class="form-group"> 
           <label for="admin-name">用户名</label>
-          <input type="text" class="form-control" name="admin-name" id="admin-name" v-model="adminName">
+          <input type="text" class="form-control" name="admin-name" id="admin-name" v-model="adminName" @keyup.enter="login()">
         </div>
         <div class="form-group"> 
           <label for="admin-password">密码</label>
-          <input type="password" class="form-control" name="admin-password" id="admin-password" v-model="adminPassword">
+          <input type="password" class="form-control" name="admin-password" id="admin-password" v-model="adminPassword" @keyup.enter="login()">
         </div>
         <div class="form-group">
           <label for="admin-vertify">验证码</label>
-          <input type="text" class="form-control" name="admin-vertify" id="admin-vertify" v-model="adminVertify">
+          <input type="text" class="form-control" name="admin-vertify" id="admin-vertify" v-model="adminVertify" @keyup.enter="login()">
         </div>
         <div class="fprm-group" style="background-image:url('./image/yamBg.jpg');margin-bottom: 20px;border-radius: 5px;">
           <a href="#" @click="upcaptcha()"> 
