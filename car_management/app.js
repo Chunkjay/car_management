@@ -7,7 +7,14 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-var postUserListRouter = require('./routes/sys/user')
+var postUserListRouter = require('./routes/sys/user');
+var addUserRouter = require('./routes/sys/user_sys/add');
+var updataUserRouter = require('./routes/sys/user_sys/update');
+var delUserRouter = require('./routes/sys/user_sys/del')
+var postGoodsListRouter = require('./routes/sys/product');
+var addGoodsRouter = require('./routes/sys/product_sys/add');
+var updataGoodsRouter = require('./routes/sys/product_sys/update');
+var delGoodsRouter = require('./routes/sys/product_sys/del')
 
 var app = express();
 
@@ -25,6 +32,13 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register',registerRouter);
 app.use('/postUserList',postUserListRouter);//获取用户列表
+app.use('/addUser',addUserRouter);//添加用户
+app.use('/updataUser',updataUserRouter);//修改用户信息
+app.use('/delUser',delUserRouter)
+app.use('/postGoodsList',postGoodsListRouter);//获取商品列表
+app.use('/addGoods',addGoodsRouter);//添加商品
+app.use('/updataGoods',updataGoodsRouter);//修改商品信息
+app.use('/delGoods',delGoodsRouter)
 app.get('/ok',function(req,res){res.send('')})//解决报错，无意义
 
 // catch 404 and forward to error handler

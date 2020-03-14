@@ -13,7 +13,7 @@ var vm = new Vue({
       var username = this.user.username
       var userid = this.user.userid
       var cur = this.cur
-      axios.post('/postUserList',{
+      axios.post('/postGoodsList',{
         username:username,
         userid:userid,
         cur:cur
@@ -30,26 +30,26 @@ var vm = new Vue({
       })
     },
     toAdd(){
-      parent.vm.sysHtml = '../../sys/user_sys/add.html'
-      parent.vm.secondLevel = '添加用户'
+      parent.vm.sysHtml = '../../sys/goods_sys/add.html'
+      parent.vm.secondLevel = '添加商品'
       parent.vm.arr.push({id:2,sysHtml:parent.vm.sysHtml})
     },
     toUpdate(user){
-      parent.vm.sysHtml = '../../sys/user_sys/updata.html'
-      parent.vm.secondLevel = '编辑用户信息'
+      parent.vm.sysHtml = '../../sys/goods_sys/updata.html'
+      parent.vm.secondLevel = '编辑商品信息'
       parent.vm.arr.push({id:2,sysHtml:parent.vm.sysHtml})
       parent.vm.user = user
     },
     del(name){
-      console.log(name)
-      axios.post('/delUser',{
+      // console.log(name)
+      axios.post('/delGoods',{
         username:name
       }).then(function(result){
         if(result.data.status != 10000){
           layer.alert(`错误代码：${result.data.status}<br>错误信息：${result.data.msg}`)
           return
         }else{
-          layer.alert('删除用户成功',{icon:6})
+          layer.alert('删除商品成功',{icon:6})
           vm.searchUser()
         }
       })
@@ -61,7 +61,7 @@ var vm = new Vue({
       // console.log(typeof cur)
       if(typeof cur == 'number'&&vm.n){
         // console.log('2............ok')
-        axios.post('/postUserList',{
+        axios.post('/postGoodsList',{
           username:username,
           userid:userid,
           cur:cur

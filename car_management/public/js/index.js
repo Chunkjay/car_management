@@ -10,7 +10,8 @@ var vm = new Vue({
     firstLevel:'',
     secondLevel:'',
     thirdLevel:'',
-    arr:[]
+    arr:[],
+    user:{}
   },//data数据结束
   methods:{
     getDate(){
@@ -156,9 +157,10 @@ var vm = new Vue({
       this.sysHtml = currentTag[0].sysHtml
       // console.log(this.sysHtml)
       switch(index){
-        case 1:this.secondLevel = this.thirdLevel = '';break;
-        case 2:this.thirdLevel = '';break;
+        case 1:this.secondLevel = this.thirdLevel = '';this.arr.splice(1,2);break;
+        case 2:this.thirdLevel = '';this.arr.splice(2,1);break;
       }
+      console.log(this.arr)
     }
   },//methods方法结束
   created(){

@@ -10,7 +10,7 @@ router.post('/',function(req,res,next){//此接口作用，判断传入的 usern
   // console.log(username,userid)
   if(!username&& !userid){
     getStoreDB(function(store){
-      store.collection('user').find({}).toArray(function(err,result){
+      store.collection('goods').find({}).toArray(function(err,result){
         // console.log(result)
         if(err){//数据库查询出错
           res.send({
@@ -45,7 +45,7 @@ router.post('/',function(req,res,next){//此接口作用，判断传入的 usern
   }else if(!username && userid){
     try {
       getStoreDB(function(store){
-        store.collection('user').find({_id:new ObjectId(userid)}).toArray(function(err,result){
+        store.collection('goods').find({_id:new ObjectId(userid)}).toArray(function(err,result){
           // console.log(result)
           if(err){//数据库查询出错
             res.send({
@@ -87,8 +87,8 @@ router.post('/',function(req,res,next){//此接口作用，判断传入的 usern
     
   }else if(username && !userid){
     getStoreDB(function(store){
-      store.collection('user').find({username:username}).toArray(function(err,result){
-        console.log(result)
+      store.collection('goods').find({goodsname:username}).toArray(function(err,result){
+        // console.log(result)
         if(err){//数据库查询出错
           res.send({
             status:10001,
@@ -122,7 +122,7 @@ router.post('/',function(req,res,next){//此接口作用，判断传入的 usern
   }else{
     try {
       getStoreDB(function(store){
-        store.collection('user').find({username:username,_id:new ObjectId(userid)}).toArray(function(err,result){
+        store.collection('goods').find({goodsname:username,_id:new ObjectId(userid)}).toArray(function(err,result){
           // console.log(result)
           if(err){//数据库查询出错
             res.send({
