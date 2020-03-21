@@ -1,0 +1,20 @@
+#sysapp>.order .leftbox,#sysapp>.order .rightbox{
+  width: 100%;
+  height: 37px;
+  position: relative;
+}
+#sysapp>.order .leftbox>.left,#sysapp>.order .rightbox>.left{
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+#sysapp>.order .leftbox>.right,#sysapp>.order .rightbox>.right{
+  position: absolute;
+  right: 5%;
+  top: 0;
+
+}
+#sysapp>.order{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

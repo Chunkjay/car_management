@@ -14,7 +14,8 @@ var delUserRouter = require('./routes/sys/user_sys/del')
 var postGoodsListRouter = require('./routes/sys/product');
 var addGoodsRouter = require('./routes/sys/product_sys/add');
 var updataGoodsRouter = require('./routes/sys/product_sys/update');
-var delGoodsRouter = require('./routes/sys/product_sys/del')
+var delGoodsRouter = require('./routes/sys/product_sys/del');
+var affirmOrderRouter = require('./routes/sys/order')
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use('/postGoodsList',postGoodsListRouter);//获取商品列表
 app.use('/addGoods',addGoodsRouter);//添加商品
 app.use('/updataGoods',updataGoodsRouter);//修改商品信息
 app.use('/delGoods',delGoodsRouter)
+app.use('/affirmOrder',affirmOrderRouter)//确认订单，并添加到物流表
 app.get('/ok',function(req,res){res.send('')})//解决报错，无意义
 
 // catch 404 and forward to error handler
