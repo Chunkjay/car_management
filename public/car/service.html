@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>汽车用品网</title>
+		<meta name="description" content="汽车用品网是一个专为汽车打造,包含所有汽车周边用品的网站.">
+		<meta name="keywords" content="汽车用品,网上购物,b2c,汽车周边" />
+		<link rel="shortcut icon" href="../image/logo_favicon.ico">
+		<link rel="stylesheet" href="dist/bootstrap.min.css">
+		<link rel="stylesheet" href="css/carstyle.css">
+		<link rel="stylesheet" href="css/cartstyle.css">
+		<link rel="stylesheet" href="css/public.css">
+	</head>
+	<body>
+		<div id="app">
+			<header class="head">
+				<div class="left">
+					<span>哈喽！欢迎来到汽车用品网，快来寻找属于你的宝贝吧</span>
+				</div>
+				<div class="right">
+					<div class="list">
+						<template v-if="username"> 
+							<span>欢迎&nbsp;&nbsp;{{username}}&nbsp;&nbsp;<a @click="logout()" href="#">退出登录</a></span>
+						</template>
+						<template v-else> 
+							<span><a href="/car/login.html">登录</a>|<a href="/car/reg.html">注册</a></span>
+						</template>
+						
+					</div>
+					<div class="list">
+						<span><a href="./service.html">客服及售后</a></span>
+					</div>
+					<div class="list">
+						<span><a href="./order.html">我的订单</a></span>
+					</div>
+					<div class="list">
+						<span><a href="cart.html">购物车</a></span>
+					</div>
+					<div class="list">
+						<span><a href="index.html">首页</a></span>
+					</div>
+				</div>
+			</header>
+		<div class="cart-nav">
+			<img src="img/carmain/logo1.png" alt="汽车用品网">
+			<span>客服及售后</span>
+		</div>
+		<div class="cart">
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+      <p class="gg" @click="open(id)" style="font-size: 20px;"><a>为什么会登录失败呢？</a></p>
+      <div class="ggb" >因为您输入的用户名或者密码出现错误。</div><br>
+		</div>
+	</div>
+	</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/js.js"></script>
+<script src="../libs/js/vue.js"></script>
+<script src="../libs/layer/layer.js"></script>
+<script src="../libs/js/axios.min.js"></script>
+<script src="js/service.js"></script>

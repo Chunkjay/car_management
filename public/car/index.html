@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>汽车用品网</title>
+		<meta name="description" content="汽车用品网是一个专为汽车打造,包含所有汽车周边用品的网站.">
+		<meta name="keywords" content="汽车用品,网上购物,b2c,汽车周边" />
+		<link rel="shortcut icon" href="../image/logo_favicon.ico">
+		<link rel="stylesheet" href="dist/bootstrap.min.css">
+		<link rel="stylesheet" href="css/carstyle.css">
+		<link rel="stylesheet" href="css/public.css">
+		<script src="js/jquery.js"></script>
+		<script src="dist/bootstrap.min.js"></script>
+		<script src="js/TouchSlide.1.1.js"></script>
+		<script src="js/js.js"></script>
+	</head>
+	<body>
+		<div id="app">
+		<header class="head">
+			<div class="left">
+				<span>哈喽！欢迎来到汽车用品网，快来寻找属于你的宝贝吧</span>
+			</div>
+			<div class="right">
+				<div class="list">
+					<template v-if="username"> 
+						<span>欢迎&nbsp;&nbsp;{{username}}&nbsp;&nbsp;<a @click="logout()" href="#">退出登录</a></span>
+					</template>
+					<template v-else> 
+						<span><a href="/car/login.html">登录</a>|<a href="/car/reg.html">注册</a></span>
+					</template>
+					
+				</div>
+				<div class="list">
+					<span><a href="./service.html">客服及售后</a></span>
+				</div>
+				<div class="list">
+					<span><a href="./order.html">我的订单</a></span>
+				</div>
+				<div class="list">
+					<span><a href="cart.html">购物车</a></span>
+				</div>
+				<div class="list">
+					<span><a href="index.html">首页</a></span>
+				</div>
+			</div>
+		</header>
+		<nav class="nav">
+			<div class="left">
+				<img src="img/carmain/logo.png" alt="logo">
+			</div>
+			<div class="right input">
+				<input type="search" placeholder="汽车用品">
+				<span>搜索</span>
+			</div>
+		</nav>
+		<section class="section1">
+			<div class="navbar">
+				<div class="navbar_box">
+					<dl>
+						<dt>精品装饰</dt>
+						<dd><a href="">汽车坐垫</a></dd>
+						<dd><a href="">汽车脚垫</a></dd>
+						<dd><a href="">后备箱垫</a></dd>
+						<dd><a href="">汽车香水</a></dd>
+					</dl>
+				</div>
+				<div class="navbar_box">
+					<dl>
+						<dt>大牌配件</dt>
+						<dd><a href="">轮胎</a></dd>
+						<dd><a href="">机油</a></dd>
+						<dd><a href="">雨刮器</a></dd>
+						<dd><a href="">滤芯器</a></dd>
+					</dl>
+				</div>
+				<div class="navbar_box">
+					<dl>
+						<dt>电子导航</dt>
+						<dd><a href="">行车导航</a></dd>
+						<dd><a href="">影音娱乐</a></dd>
+						<dd><a href="">安全预警</a></dd>
+						<dd><a href="">车载电器</a></dd>
+					</dl>
+				</div>
+				<div class="navbar_box">
+					<dl>
+						<dt>美容保养</dt>
+						<dd><a href="">爱车美容</a></dd>
+						<dd><a href="">精致洗车</a></dd>
+						<dd><a href="">爱车养护</a></dd>
+						<dd><a href="">4S保养</a></dd>
+					</dl>
+				</div>
+				<ul>
+					<li class="active">
+						<dl>
+							<dt>汽车坐垫:</dt>
+							<dd><a href="">亚麻坐垫</a></dd>
+							<dd><a href="">通用坐垫</a></dd>
+							<dd><a href="">专车专用坐垫</a></dd>
+							<dd><a href="">冬季坐垫</a></dd>
+							<dd><a href="">皮革坐垫</a></dd>
+							<dd><a href="">真皮坐垫</a></dd>
+							<dd><a href="">卡通坐垫</a></dd>
+							<dd><a href="">主题坐垫</a></dd>
+						</dl>
+						<dl>
+							<dt>汽车脚垫:</dt>
+							<dd><a href="">专车专用脚垫</a></dd>
+							<dd><a href="">丝圈脚垫</a></dd>
+							<dd><a href="">皮革大包围脚垫</a></dd>
+							<dd><a href="">地毯脚垫</a></dd>
+							<dd><a href="">通用脚垫</a></dd>
+							<dd><a href="">3d脚垫</a></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>后备箱垫:</dt>
+							<dd><a href="">专车专用后备箱垫</a></dd>
+							<dd><a href="">汽车尾箱垫</a></dd>
+							<dd><a href="">丝圈尾箱垫</a></dd>
+							<dd><a href="">皮革尾箱垫</a></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>汽车香水:</dt>
+							<dd><a href="">汽车香水</a></dd>
+							<dd><a href="">车载香水</a></dd>
+							<dd><a href="">汽车香薰</a></dd>
+							<dd><a href="">香水补充液</a></dd>
+							<dd><a href="">汽车香膏</a></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>精品内饰:</dt>
+							<dd><a href="">腰靠</a></dd>
+							<dd><a href="">颈枕</a></dd>
+							<dd><a href="">靠垫</a></dd>
+							<dd><a href="">方向盘套</a></dd>
+							<dd><a href="">把套</a></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>汽车座套:</dt>
+							<dd><a href="">布艺座套</a></dd>
+							<dd><a href="">真皮座套</a></dd>
+							<dd><a href="">PU座套</a></dd>
+							<dd><a href="">通用座套</a></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>轮胎:</dt>
+							<dd><a href="">米其林</a></dd>
+							<dd><a href="">固特异</a></dd>
+							<dd><a href="">普利司通</a></dd>
+							<dd><a href="">邓禄普</a></dd>
+							<dd><a href="">德国马牌</a></dd>
+							<dd><a href="">固铂</a></dd>
+							<dd><a href="">诺记</a></dd>
+							<dd><a href="">朝阳</a></dd>
+						</dl>
+						<dl>
+							<dt>机油:</dt>
+							<dd><a href="">壳牌</a></dd>
+							<dd><a href="">美孚</a></dd>
+							<dd><a href="">嘉实多</a></dd>
+							<dd><a href="">长城</a></dd>
+							<dd><a href="">龙蟠</a></dd>
+							<dd><a href="">福斯</a></dd>
+							<dd><a href="">昆仑</a></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>雨刮器:</dt>
+							<dd><a href="">博世</a></dd>
+							<dd><a href="">卡卡买</a></dd>
+							<dd><a href="">3M</a></dd>
+							<dd><a href="">电装</a></dd>
+							<dd><a href="">澳麟</a></dd>
+							<dd><a href="">法雷奥</a></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>滤芯器:</dt>
+							<dd><a href="">博世</a></dd>
+							<dd><a href="">曼牌</a></dd>
+							<dd><a href="">马勒</a></dd>
+							<dd><a href="">汉格斯特</a></dd>
+							<dd><a href="">索菲玛</a></dd>
+							<dd></dd>
+							<dd></dd>
+							<dd></dd>
+						</dl>
+						<dl>
+							<dt>车灯:</dt>
+							<dd><a href="">欧司朗</a></dd>
+							<dd><a href="">飞利浦</a></dd>
+							<dd><a href="">海拉</a></dd>
+							<dd><a href="">雪莱特</a></dd>
+							<dd><a href="">品维</a></dd>
+							<dd><a href="">LONGDING</a></dd>
+							<dd><a href="">LIGHT</a></dd>
+							<dd><a href="">硕创光电</a></dd>
+						</dl>
+						<dl>
+							<dt>火花塞:</dt>
+							<dd><a href="">NGK</a></dd>
+							<dd><a href="">雷遁</a></dd>
+							<dd><a href="">博世</a></dd>
+							<dd><a href="">电装</a></dd>
+							<dd><a href="">火炬</a></dd>
+							<dd><a href="">冠军</a></dd>
+							<dd><a href="">铱金火花塞</a></dd>
+							<dd><a href="">双铂金</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>行车导航:</dt>
+							<dd><a href="">后视镜导航</a></dd>
+							<dd><a href="">车载导航</a></dd>
+							<dd><a href="">便携式导航</a></dd>
+						</dl>
+						<dl>
+							<dt>影音娱乐:</dt>
+							<dd><a href="">车载MP3</a></dd>
+							<dd><a href="">汽车音箱</a></dd>
+							<dd><a href="">低音炮</a></dd>
+						</dl>
+						<dl>
+							<dt>安全预警:</dt>
+							<dd><a href="">安全预警仪</a></dd>
+							<dd><a href="">GPS定位</a></dd>
+							<dd><a href="">胎压监测</a></dd>
+							<dd><a href="">倒车雷达</a></dd>
+							<dd><a href="">HUD抬头显示</a></dd>
+						</dl>
+						<dl>
+							<dt>车载电器:</dt>
+							<dd><a href="">抗霾神器</a></dd>
+							<dd><a href="">车载冰箱</a></dd>
+							<dd><a href="">车载吸尘器</a></dd>
+							<dd><a href="">点烟器</a></dd>
+						</dl>
+						<dl>
+							<dt>后视镜:</dt>
+							<dd><a href="">1080P 高清</a></dd>
+							<dd><a href="">一体机</a></dd>
+							<dd><a href="">双镜头</a></dd>
+							<dd><a href="">夜视</a></dd>
+							<dd><a href="">迷你隐形</a></dd>
+						</dl>
+						<dl>
+							<dt>智能车机:</dt>
+							<dd><a href="">大众</a></dd>
+							<dd><a href="">丰田</a></dd>
+							<dd><a href="">福特</a></dd>
+							<dd><a href="">现代</a></dd>
+							<dd><a href="">本田</a></dd>
+							<dd><a href="">起亚</a></dd>
+							<dd><a href="">雪铁龙</a></dd>
+							<dd><a href="">宝马</a></dd>
+							<dd><a href="">奥迪</a></dd>
+							<dd><a href="">雪佛兰</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>爱车美容:</dt>
+							<dd><a href="">车蜡</a></dd>
+							<dd><a href="">镀晶</a></dd>
+							<dd><a href="">补漆笔</a></dd>
+							<dd><a href="">清洗剂</a></dd>
+						</dl>
+						<dl>
+							<dt>精致洗车:</dt>
+							<dd><a href="">汽车水枪</a></dd>
+							<dd><a href="">洗车机</a></dd>
+							<dd><a href="">车掸</a></dd>
+							<dd><a href="">擦车巾</a></dd>
+						</dl>
+						<dl>
+							<dt>爱车养护:</dt>
+							<dd><a href="">燃油宝</a></dd>
+							<dd><a href="">玻璃水</a></dd>
+							<dd><a href="">防冻液</a></dd>
+							<dd><a href="">底盘装甲</a></dd>
+							<dd><a href="">维修工具</a></dd>
+							<dd><a href="">千斤顶</a></dd>
+							<dd><a href="">安全锤工具</a></dd>
+							<dd><a href="">升降机</a></dd>
+							<dd><a href="">应急灯</a></dd>
+						</dl>
+						<dl>
+							<dt>汽车保养:</dt>
+							<dd><a href="">上门保养</a></dd>
+							<dd><a href="">豪车保养</a></dd>
+							<dd><a href="">汽车保养</a></dd>
+							<dd><a href="">全国洗车</a></dd>
+						</dl>
+						<dl>
+							<dt>4S保养:</dt>
+							<dd><a href="">别克</a></dd>
+							<dd><a href="">雪佛兰</a></dd>
+							<dd><a href="">斯柯达</a></dd>
+							<dd><a href="">东风标致</a></dd>
+							<dd><a href="">上海大众</a></dd>
+							<dd><a href="">广汽丰田</a></dd>
+							<dd><a href="">广汽本田</a></dd>
+							<dd><a href="">北京现代</a></dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<div class="banner">
+				<ul>
+					<li class="active"><img src="img/caradver/ban1.jpg" alt="汽车用品网"></li>
+					<li><img src="img/caradver/ban2.jpg" alt="汽车用品网"></li>
+					<li><img src="img/caradver/ban3.jpg" alt="汽车用品网"></li>
+					<li><img src="img/caradver/ban4.jpg" alt="汽车用品网"></li>
+				</ul>
+				<ol>
+					<li>4</li>
+					<li>3</li>
+					<li>2</li>
+					<li class="active">1</li>
+				</ol>
+			</div>
+			<!-- 这里是公告 -->
+			<div class="adver1">
+				<p style="text-align: center;font-size: 20px;">公告栏</p><br>
+				<template v-for="item in ggList">
+					<p class="gg" @click="open(item._id)"><a>{{item.announcename}}<span>{{item.startTime}}</span></a></p>
+					<div class="ggb" :id="item._id">{{item.content}}</div>
+				</template>
+				
+			</div>
+			<div class="adver2">
+				<img src="img/caradver/adver2-1.jpg" alt="">
+				<img src="img/caradver/adver2-2.jpg" alt="">
+				<img src="img/caradver/adver2-3.jpg" alt="">
+			</div>
+		</section>
+		<section class="section2">
+			<nav>
+				<span>快速入口</span>
+				<ul>
+					<li><a href="#jpzs">冬季座垫</a></li>
+					<li><a href="#jpzs">车载香水</a></li>
+					<li><a href="#dppj">普利司通</a></li>
+					<li><a href="#dppj">嘉实多</a></li>
+					<li><a href="#dzdh">车载MP3</a></li>
+					<li><a href="#dzdh">GPS定位</a></li>
+					<li><a href="#dzdh">记录仪</a></li>
+					<li><a href="#dzdh">后视镜</a></li>
+					<li><a href="#mrby">补漆笔</a></li>
+					<li><a href="#mrby">上门保养</a></li>
+				</ul>
+			</nav>
+			<div class="goodsbox" id="jpzs">
+				<span>精品装饰</span>
+				<ul>
+					<li v-for="item in jpzsList" :key="item._id">
+						<a href="javascript:void(0)">
+							<img :src="item.photo" alt="商品图片">
+							<h4>{{item.introduction}}</h4>
+							<div>
+								<div class="mbox">
+									<div class="m1">￥</div>
+									<div class="m2">{{Math.floor(Number(item.price))}}</div>
+								</div>
+								<div class="ebox">
+									<div class="e1"><del>￥{{Math.floor(Number(item.price))+89}}</del></div>
+									<div class="e2">已售出{{item.passnum}}件</div>
+								</div>
+								<div class="qbox" @click="toAdd(item)">抢！</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="goodsbox" id="dppj">
+				<span>大牌配件</span>
+				<ul>
+					<li v-for="item in dppjList" :key="item._id">
+						<a href="javascript:void(0)">
+							<img :src="item.photo" alt="商品图片">
+							<h4>{{item.introduction}}</h4>
+							<div>
+								<div class="mbox">
+									<div class="m1">￥</div>
+									<div class="m2">{{Math.floor(Number(item.price))}}</div>
+								</div>
+								<div class="ebox">
+									<div class="e1"><del>￥{{Math.floor(Number(item.price))+89}}</del></div>
+									<div class="e2">已售出{{item.passnum}}件</div>
+								</div>
+								<div class="qbox" @click="toAdd(item)">抢！</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="goodsbox" id="dzdh">
+				<span>电子导航</span>
+				<ul>
+					<li v-for="item in dzdhList" :key="item._id">
+						<a href="javascript:void(0)">
+							<img :src="item.photo" alt="商品图片">
+							<h4>{{item.introduction}}</h4>
+							<div>
+								<div class="mbox">
+									<div class="m1">￥</div>
+									<div class="m2">{{Math.floor(Number(item.price))}}</div>
+								</div>
+								<div class="ebox">
+									<div class="e1"><del>￥{{Math.floor(Number(item.price))+89}}</del></div>
+									<div class="e2">已售出{{item.passnum}}件</div>
+								</div>
+								<div class="qbox" @click="toAdd(item)">抢！</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="goodsbox" id="mrby">
+				<span>美容保养</span>
+				<ul>
+					<li v-for="item in mrbyList" :key="item._id">
+						<a href="javascript:void(0)">
+							<img :src="item.photo" alt="商品图片">
+							<h4>{{item.introduction}}</h4>
+							<div>
+								<div class="mbox">
+									<div class="m1">￥</div>
+									<div class="m2">{{Math.floor(Number(item.price))}}</div>
+								</div>
+								<div class="ebox">
+									<div class="e1"><del>￥{{Math.floor(Number(item.price))+89}}</del></div>
+									<div class="e2">已售出{{item.passnum}}件</div>
+								</div>
+								<div class="qbox" @click="toAdd(item)">抢！</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class="aside" style="display: none;">
+			<img src="img/img-car/carSmall/upward.png" alt="汽车用品">
+			<span class="s1">顶部</span>
+		</div>
+		<hr>
+		<footer class="footer">
+			<div class="f1">
+				<div class="f1_1">
+					<img src="img/carmain/logo1.png" alt="汽车用品网">
+				</div>
+				<div class="f1_2">
+					<ul>
+						<li>
+							<dl>
+								<dt>新手上路</dt>
+								<dd><a href="">购物流程</a></dd>
+								<dd><a href="">订购方式</a></dd>
+								<dd><a href="">在线支付</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>配送方式</dt>
+								<dd><a href="">货到付款区域</a></dd>
+								<dd><a href="">配送支付查询</a></dd>
+								<dd><a href="">支付方式说明</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>购物指南</dt>
+								<dd><a href="">订购流程</a></dd>
+								<dd><a href="">注册新会员</a></dd>
+								<dd><a href="">联系管理</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>售后服务</dt>
+								<dd><a href="">售后服务保证</a></dd>
+								<dd><a href="">换货流程</a></dd>
+								<dd><a href="">返修退换货</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>关于我们</dt>
+								<dd><a href="">网站故障报告</a></dd>
+								<dd><a href="">选机咨询</a></dd>
+								<dd><a href="">投诉与建议</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt>服务与支持</dt>
+								<dd><a href="">服务电话：443778</a></dd>
+								<dd><a href="">工作时间：9：00-18：00</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="f2">
+				关于我们|联系我们|站点地图|移动商城ICP备案证书号：津ICP备1234567号<br>
+				文字图片等版权所有，不可盗用
+			</div>
+		</footer>
+
+		<!-- toadd -->
+		<div ref="toadd" id="toadd" v-if="isToAdd">
+			<p style="text-align: center;">选择产品参数</p>
+			<form>
+				<p>产品名：{{gwc.goodsname}}</p><br>
+				颜色：<select name="color" v-model="gwc.color">
+					<option value="red">红色</option>
+					<option value="blue">蓝色</option>
+					<option value="white">白色</option>
+					<option value="blank">黑色</option>
+				</select><br><br>
+				大小：<select name="size" v-model="gwc.size">
+					<option value="xxl">xxl</option>
+					<option value="xl">xl</option>
+					<option value="l">l</option>
+					<option value="s">s</option>
+				</select><br><br>
+				数量：<input type="number" v-model="gwc.num"><br><br>
+				<input @click="addGwc()" type="button" value="确认加入购物车">&nbsp;&nbsp;&nbsp;&nbsp;
+				<input @click="closeAdd()" type="button" value="取消">
+
+			</form>
+		</div>
+	</div>
+	</body>
+</html>
+<script src="../libs/js/vue.js"></script>
+<script src="../libs/layer/layer.js"></script>
+<script src="../libs/js/axios.min.js"></script>
+<script src="./js/index.js"></script>

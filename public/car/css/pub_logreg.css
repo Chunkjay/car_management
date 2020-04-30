@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  pad: 0;
+}
+#app{
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  background-color: aquamarine;
+}
+#app>.left{
+  width: 60%;
+  height: 500px;
+  float: left;
+}
+#app>.right{
+  width: 30%;
+  height: 400px;
+  margin-top: 50px;
+  float: left;
+  margin-left: 5%;
+  background-color: #f2ecd3;
+  box-shadow: 0px 0px 5px 5px #ccc;
+}
+#app>.left .banner{
+	width: 100%;
+	height: 500px;
+	float: left;
+	position: relative;
+}
+#app>.left .banner ul{
+	width: 100%;
+	height: inherit;
+}
+#app>.left .banner ul li{
+	width: 100%;
+	height: inherit;
+	display: none;
+}
+#app>.left .banner ul .active{
+	display: block;
+}
+#app>.left .banner ul li img{
+	width: 100%;
+	height: 500px;
+}
+#app>.left .banner ol{
+	position: absolute;
+	width: 90%;
+	height: 20px;
+	bottom: 20px;
+	left: 0;
+}
+#app>.left .banner ol li{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 50%;
+	float: right;
+	background: #FFFFFF;
+	margin-right: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+#app>.left .banner ol .active{
+	background: #FF0000;
+}
+
+
+/* 开始reg */
+#regapp{
+	width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  background-color: aquamarine;
+}
+#regapp>.main{
+	width: 60%;
+	margin-left: 10%;
+}

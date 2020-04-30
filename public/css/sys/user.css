@@ -1,0 +1,10 @@
+#nav{
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+#addUser{
+  width: 80%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+}

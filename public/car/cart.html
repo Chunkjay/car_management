@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>汽车用品网</title>
+		<meta name="description" content="汽车用品网是一个专为汽车打造,包含所有汽车周边用品的网站.">
+		<meta name="keywords" content="汽车用品,网上购物,b2c,汽车周边" />
+		<link rel="shortcut icon" href="../image/logo_favicon.ico">
+		<link rel="stylesheet" href="dist/bootstrap.min.css">
+		<link rel="stylesheet" href="css/carstyle.css">
+		<link rel="stylesheet" href="css/cartstyle.css">
+		<link rel="stylesheet" href="css/public.css">
+	</head>
+	<body>
+		<div id="app">
+			<header class="head">
+				<div class="left">
+					<span>哈喽！欢迎来到汽车用品网，快来寻找属于你的宝贝吧</span>
+				</div>
+				<div class="right">
+					<div class="list">
+						<template v-if="username"> 
+							<span>欢迎&nbsp;&nbsp;{{username}}&nbsp;&nbsp;<a @click="logout()" href="#">退出登录</a></span>
+						</template>
+						<template v-else> 
+							<span><a href="/car/login.html">登录</a>|<a href="/car/reg.html">注册</a></span>
+						</template>
+						
+					</div>
+					<div class="list">
+						<span><a href="./service.html">客服及售后</a></span>
+					</div>
+					<div class="list">
+						<span><a href="./order.html">我的订单</a></span>
+					</div>
+					<div class="list">
+						<span><a href="cart.html">购物车</a></span>
+					</div>
+					<div class="list">
+						<span><a href="index.html">首页</a></span>
+					</div>
+				</div>
+			</header>
+		<div class="cart-nav">
+			<img src="img/carmain/logo1.png" alt="汽车用品网">
+			<span>购物车</span>
+		</div>
+		<div class="cart">
+			<ul class="top">
+				<li class="car-ck col-sm-1">
+					<input type="checkbox" @click="sumjisuan($event)" :checked="idquanChecked" />
+				</li>
+				<li class="car-img col-sm-3">
+					<p>商品信息</p>
+				</li>
+				<li class="car-cc col-sm-2">
+					<p>商品参数</p>
+				</li>
+				<li class="car-price col-sm-1">
+					<p>单价</p>
+				</li>
+				<li class="car-mount col-sm-2">
+					<p>数量</p>
+				</li>
+				<li class="car-sum col-sm-1">
+					<p>金额</p>
+				</li>
+				<li class="car-op col-sm-2">
+					<p>操作</p>
+				</li>
+			</ul>
+			<div class="box">
+				<ul class="car-cart" v-for="item in gwcList" :key="item.id">
+				<li class="car-ck col-sm-1">
+					<div class="content"><input type="checkbox" name="isbuy" :value="item" :id="item._id" v-model="buy" @click="jisuan(item.price,item.num,$event)"></div>
+				</li>
+				<li class="car-img col-sm-3">
+					<div class="content">
+						<div class="img"><a href="javascrip:void(0)"><img :src="item.photo" alt="商品图片"></a></div>
+						<div class="wenzi"><a href="javascrip:void(0)">{{item.jianj}}</a></div>
+					</div>
+				</li>
+				<li class="car-cc col-sm-2">
+					<div class="content">
+						<p>尺寸：{{item.size}}</p>
+						<p>颜色：{{item.color}}</p>
+					</div>
+				</li>
+				<li class="car-price col-sm-1">
+					<div class="content">
+						<span>￥</span><span class="price">{{item.price}}</span>
+					</div>
+				</li>
+				<li class="car-mount col-sm-2">
+					<div class="content">
+						<input type="text" name="mount" class="mount" value="1" v-model="item.num" />
+					</div>
+				</li>
+				<li class="car-sum col-sm-1">
+					<div class="content">
+						<span>￥</span><span class="sum">{{item.num*item.price}}</span>
+					</div>
+				</li>
+				<li class="car-op col-sm-2">
+					<div class="content">
+						<p><a href="#" @click.prevent="delGwc(item._id)">删除</a></p>
+					</div>
+				</li>
+				</ul>
+			</div>
+			<div class="bottom">
+				<p id="bug" @click="toOrder()">购买选中</p>
+				<p>金额:{{sum}}</p>
+			</div>
+		</div>
+
+		<!-- toorder -->
+		<div id="toOrder" v-if="istoOrder">
+			<p style="text-align: center;">订单</p>
+			<form>
+				<table class=" table table-bordered ">
+					<thead>
+						<tr>
+							<td>用户名</td>
+							<td>商品名</td>
+							<td>商品大小</td>
+							<td>商品颜色</td>
+							<td>商品单价</td>
+							<td>商品数量</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in buy">
+							<td>{{username}}</td>
+							<td>{{item.goodsname}}</td>
+							<td>{{item.size}}</td>
+							<td>{{item.color}}</td>
+							<td>{{item.price}}</td>
+							<td>{{item.num}}</td>
+						</tr>
+					</tbody>
+				</table>
+				收贷地址：<input type="text" placeholder="请输入收贷地址" v-model="order.adress"><br><br>
+				联系电话：<input type="tel" placeholder="请输入联系电话" v-model="order.phone"><br><br>
+				
+				
+				<input @click="addOrder()" type="button" value="确认添加此订单">&nbsp;&nbsp;&nbsp;&nbsp;
+				<input @click="closeAdd()" type="button" value="取消">
+
+			</form>
+		</div>
+
+	</div>
+	</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/js.js"></script>
+<script src="../libs/js/vue.js"></script>
+<script src="../libs/layer/layer.js"></script>
+<script src="../libs/js/axios.min.js"></script>
+<script src="js/Zongjia.js"></script>

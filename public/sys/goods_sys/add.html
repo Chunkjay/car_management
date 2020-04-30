@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/sys/sysmain.css">
+  <link rel="stylesheet" href="../../css/sys/user.css">
+  <title>商品信息管理</title>
+</head>
+<body>
+  <div id="sysapp">
+    
+    <div id="addUser">
+      <form class="form-horizontal" >
+        <div class="from-group" style="width: 520px;margin-top: 20px;">
+          <div class="form-group">
+            <label class="col-sm-5 control-label">商品名</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="username" name="username" v-model="user.username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="photo" class="col-sm-5 control-label">商品图片</label>
+            <div class="col-sm-7">
+              <input type="file" name="photo" id="photo" @blur="addphoto($event)">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-5 control-label">商品类别</label>
+            <label class="col-sm-3 control-label">
+              <input type="radio" name="lieb" value="精品装饰" v-model="user.lieb">精品装饰
+            </label>
+            <label class="col-sm-3 control-label">
+              <input type="radio" name="lieb" value="大牌配件" v-model="user.lieb">大牌配件
+            </label>
+            <label class=" col-sm-offset-5 col-sm-3 control-label">
+              <input type="radio" name="lieb" value="电子导航" v-model="user.lieb">电子导航
+            </label>
+            <label class="col-sm-3 control-label">
+              <input type="radio" name="lieb" value="美容保养" v-model="user.lieb">美容保养
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="introduction" class="col-sm-5 control-label">简介</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="introduction" name="introduction" v-model="user.introduction">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="price" class="col-sm-5 control-label">单价</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="price" name="price" v-model="user.price">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="number" class="col-sm-5 control-label">已售出</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="pssnum" name="pssnum" v-model="user.passnum">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="number" class="col-sm-5 control-label">库存</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="number" name="number" v-model="user.number">
+            </div>
+          </div>
+          <div class="form-group">
+            
+            <div class="col-sm-offset-5 col-sm-7">
+              <input type="button" class="btn btn-primary" id="submit" name="submit" @click="addUser()" value="添加此商品">
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    
+
+    
+    
+  </div>
+</body>
+</html>
+<script src="../../libs/js/jquery.js"></script>
+<script src="../../libs/js/bootstrap.min.js"></script>
+<script src="../../libs/js/vue.js"></script>
+<script src="../../libs/js/axios.min.js"></script>
+<script src="../../libs/layer/layer.js"></script>
+<script src="../../js/sys/product_sys/add.js"></script>

@@ -1,0 +1,122 @@
+*{
+  margin: 0px;
+  pad: 0px;
+  list-style: none;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../libs/car_of/iconfont.eot');
+  src: url('../libs/car_of/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('../libs/car_of/iconfont.woff2') format('woff2'),
+      url('../libs/car_of/iconfont.woff') format('woff'),
+      url('../libs/car_of/iconfont.ttf') format('truetype'),
+      url('../libs/car_of/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#app>header{
+  width: 100%;
+  height: 60px;
+  background-color: #6d6dac;
+  position: relative;
+}
+#app>header>.left{
+  position: absolute;
+  left: 40px;
+  top: 0px;
+  font-size: 28px;
+  line-height: 60px;
+  color: white;
+}
+#app>header>.right{
+  position: absolute;
+  right: 30px;
+  text-align: right;
+  top: 0px;
+  font-size: 16px;
+  line-height: 30px;
+  color: white;
+}
+#app>header>.right>span>a{
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+#app>header>.right>span>a:hover{
+  color: red;
+}
+#app>aside{
+  width:15%;
+  box-sizing: border-box;
+  float: left;
+}
+#app>aside>ul{
+  padding: 0px;
+  font-size: 16px;
+}
+#app>aside>ul>li{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 30px;
+  position: relative;
+}
+#app>aside>ul>li:hover{
+  background-color: #f1ecec;
+}
+#app>aside>ul>li:first-of-type{
+  padding-left: 0px;
+  text-align: center;
+  font-size: 12px;
+}
+#app>aside>ul>li>span{
+  position: absolute;
+  left:8px;
+  color: #2400ff;
+}
+#app>aside>ul>li a{
+  color: black;
+  text-decoration: none;
+}
+#app>aside>ul>li a:hover{
+  color:red;
+}
+#app>main{
+  width: 85%;
+  border-left: 1px solid #ccc;
+  box-sizing: border-box;
+  float: left;
+}
+#app>main>header{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  color: rgb(85, 83, 83);
+  padding-left: 20px;
+}
+#app>main>header>span>a{
+  color: black;
+  font-size: 12px;
+}
+#app>main>header>span>a:hover{
+  color: red;
+  text-decoration: underline;
+}
+#app>main>main{
+  width: 100%;
+  height: 500px;
+}
+#app>main>main>iframe{
+  width: 100%;
+  height: 460px;
+  border: none;
+  
+}

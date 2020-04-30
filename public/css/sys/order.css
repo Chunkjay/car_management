@@ -1,0 +1,48 @@
+#sysapp>.order .leftbox,#sysapp>.order .rightbox{
+  width: 100%;
+  height: 37px;
+  position: relative;
+}
+#sysapp>.order .leftbox>.left,#sysapp>.order .rightbox>.left{
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+#sysapp>.order .leftbox>.right,#sysapp>.order .rightbox>.right{
+  position: absolute;
+  right: 5%;
+  top: 0;
+
+}
+#sysapp>.order .leftbox>.center{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#sysapp>.order{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 10px 5px #ccc;
+}
+#sysapp>.order>table{
+  margin-bottom: 0px;
+}
+#sysapp>.order>.logistics{
+  width: 90%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  display: none;
+  border: 1px solid #ccc;
+  position: relative;
+}
+#sysapp>.order>.logistics>ul>li{
+  margin-bottom: 10px;
+}
+#sysapp>.order>.logistics>.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotateZ(45deg);
+}

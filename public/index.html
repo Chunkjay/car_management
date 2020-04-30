@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./image/logo_favicon.ico">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>汽车网上用品销售管理系统</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="left">汽车网上用品销售管理系统</div>
+      <div class="right">
+        <span>{{time}}</span><br>
+        <span v-show="adminName">欢迎<span>{{adminName}}</span></span>
+        <span v-show="!adminName"><a href="./login.html">去登录</a>&nbsp;&nbsp;</span>
+        <span v-show="adminName">&nbsp;&nbsp;<a href="javascript:void(0)" @click="revisePassword()">修改密码</a></span>
+      </div>
+    </header>
+    <aside>
+      <ul>
+        <li @click="toWelcome()" title="汽车网上用品销售管理系统"><a href="javascript:void(0)">汽车网上用品销售管理系统</a></li>
+        <li @click="toUser()" title="系统用户管理"><span class="iconfont">&#xe602;</span><a href="javascript:void(0)">系统用户管理</a></li>
+        <li @click="toProduct()" title="商品信息管理"><span class="iconfont">&#xe600;</span><a href="javascript:void(0)">商品信息管理</a></li>
+        <li @click="toOrder()" title="订单及结账管理"><span class="iconfont">&#xe601;</span><a href="javascript:void(0)">订单及结账管理</a></li>
+        <li @click="toLogistics()" title="物流配送"><span class="iconfont">&#xe718;</span><a href="javascript:void(0)">物流配送</a></li>
+        <li @click="toAnnouncement()" title="公告管理"><span class="iconfont">&#xe6a0;</span><a href="javascript:void(0)">公告管理</a></li>
+        <li @click="toService()" title="售后与顾客服务"><span class="iconfont">&#xe61e;</span><a href="javascript:void(0)">售后与顾客服务</a></li>
+      </ul>
+    </aside>
+    <main>
+      <header>
+        <span class="iconfont">&#xe603;</span>
+        <span v-show="firstLevel" :title="firstLevel">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="1" ref="dataSelf">{{firstLevel}}</a></span>
+        <span v-show="secondLevel" :title="secondLevel">&nbsp;>&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="2" ref="dataSelf">{{secondLevel}}</a></span>
+        <span v-show="thirdLevel" :title="thirdLevel">&nbsp;>&nbsp;<a href="javascript:void(0)" @click="toSkip($event)" data-index="3" ref="dataSelf">{{thirdLevel}}</a></span>
+      </header>
+      <main>
+        <iframe :src="sysHtml"></iframe>
+      </main>
+    </main>
+
+    <!-- 修改密码弹窗 -->
+    <div id="passwordLayer" style="display: none;">
+      <form class="form-horizontal" >
+        <div class="from-group" style="width: 520px;margin-top: 20px;">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">用户姓名</label>
+            <div class="col-sm-6">
+              <label class="control-label">{{adminName}}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword" class="col-sm-4 control-label">旧密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="adminPassword" name="adminPassword" v-model="adminPassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword" class="col-sm-4 control-label">新密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="newPassword" name="newPassword" v-model="newPassword">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPasswordVerify" class="col-sm-4 control-label">确认密码</label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="newPasswordVerify" name="newPasswordVerify" v-model="newPasswordVerify">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    
+  </div>
+</body>
+</html>
+<script src="./libs/js/jquery.js"></script>
+<script src="./libs/js/bootstrap.min.js"></script>
+<script src="./libs/layer/layer.js"></script>
+<script src="./libs/js/vue.js"></script>
+<script src="./libs/js/axios.min.js"></script>
+<script src="./js/index.js"></script>

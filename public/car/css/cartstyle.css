@@ -1,0 +1,205 @@
+.cart-nav{
+	width: 90%;
+	height: 100px;
+	margin: 20px auto;
+	font-size: 20px;
+}
+.cart {
+	width: 80%;
+	min-height: 300px;
+	margin: 50px auto;
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.cart .top{
+	height: 40px;
+}
+.cart .top li{
+	height: 40px;
+}
+.cart .top li p{
+	margin: 0px 5px 0px 15px;
+	color: #787777;
+}
+.cart .car-cart{
+	width: 100%;
+	min-height: 100px;
+	border: 1px solid #ccc;
+}
+.cart .car-cart li{
+	display: block;
+	height: 100px;
+}
+.cart .car-cart li .content{
+	padding-top: 20px;
+}
+.cart .car-cart .car-img .content .img{
+	height: 60px;
+	width: 60px;
+	float: left;
+}
+.cart .car-cart .car-img .content .img a img{
+	
+	width: 60px;
+	height: 60px;
+}
+.cart .car-cart .car-img .content .wenzi{
+	margin-left: 74px;
+}
+.cart .car-cart .car-img .content .wenzi a{
+	color: #000000;
+}
+.cart .car-cart .car-img .content .wenzi a:hover{
+	color: red;
+}
+.cart .car-cart .car-price .content span{
+	color: #787777;
+}
+.cart .car-cart .car-mount .content{
+	position: relative;
+}
+.cart .car-cart .car-mount .content .jian{
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	display: block;
+	width: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.cart .car-cart .car-mount .content input{
+	position: absolute;
+	top: 20;
+	left: 20px;
+	width: 40px;
+	height: 30px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid #dadada;
+	padding: 5px 0;
+	outline: none;
+}
+.cart .car-cart .car-mount .content .jia{
+	position: absolute;
+	top: 20px;
+	left: 60px;
+	display: block;
+	width: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;;
+}
+.cart .car-cart .car-mount .content a{
+	color: #000000;
+	font-size: 20px;
+	background: #dadada;
+	text-decoration: none;
+}
+.cart .car-cart .car-mount .content a:hover,
+.cart .car-cart .car-mount .content a:active{
+	text-decoration: none;
+	color: #FF0000;
+}
+.cart .bottom{
+	margin-top: 20px;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #ccc;
+	line-height: 40px;
+}
+.cart .bottom p{
+	height: 100%;
+	width: 150px;
+	float: right;
+	text-align: center;
+}
+.cart .bottom #bug{
+	margin-right: 50px;
+	background: red;
+	cursor: pointer;
+}
+#toOrder{
+	position: fixed;
+	padding: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 400px;
+	background-color: white;
+	box-shadow: 0 0 2px 2px #ccc;
+}
+#toOrder>form>input{
+	border-bottom: 1px solid #ccc;
+}
+
+/* 订单页开始 */
+#app>.cart>.order .leftbox,#sysapp>.order .rightbox{
+  width: 100%;
+  height: 37px;
+  position: relative;
+}
+#app>.cart>.order .leftbox>.left,#sysapp>.order .rightbox>.left{
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+#app>.cart>.order .leftbox>.right,#sysapp>.order .rightbox>.right{
+  position: absolute;
+  right: 5%;
+  top: 0;
+
+}
+#app>.cart>.order .leftbox>.center{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#app>.cart>.order{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 10px 5px #ccc;
+}
+#app>.cart>.order>table{
+  margin-bottom: 0px;
+}
+#tozhifu{
+	position: fixed;
+	padding: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 361px;
+	height: 361px;
+	background-color: white;
+	box-shadow: 0 0 2px 2px #ccc;
+}
+#tozhifu>span{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	transform: rotateZ(45deg);
+	cursor: pointer;
+}
+#app>.cart>.order>.logistics{
+  width: 90%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  display: none;
+  border: 1px solid #ccc;
+  position: relative;
+}
+#app>.cart>.order>.logistics>ul>li{
+  margin-bottom: 10px;
+}
+#app>.cart>.order>.logistics>.close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotateZ(45deg);
+}

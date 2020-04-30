@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订单及结账管理</title>
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/sys/sysmain.css">
+  <link rel="stylesheet" href="../css/sys/order.css">
+</head>
+<body>
+  
+  <div id="sysapp">
+
+    <!-- 一个订单页 -->
+    <div class="order" v-for="item in orderList" :key="item._id">
+      
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th colspan="2">订单号</th>
+            <th>下单人</th>
+            <th>联系电话</th>
+            <th colspan="2">配送地址</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th colspan="2">{{item._id}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.phone}}</th>
+            <th colspan="2">{{item.adress}}</th>
+          </tr>
+          <tr>
+            <th>下单商品</th>
+            <th>颜色</th>
+            <th>尺寸</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>总价</th>
+          </tr>
+          <tr v-for="iitem in item.goods">
+            <th>{{iitem.goodsname}}</th>
+            <th>{{iitem.color}}</th>
+            <th>{{iitem.size}}</th>
+            <th>{{iitem.price}}</th>
+            <th>{{iitem.num}}</th>
+            <th>{{iitem.price*iitem.num}}</th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="leftbox">
+                <div class="left">
+                  <span>总计</span>
+                </div>
+                <div class="center">
+                  ￥<span>{{item.sum}}</span>
+                </div>
+                <div class="right">
+                  订单状态：{{item.status}}
+                </div>
+              </div>
+            </td>
+            <td colspan="4">
+              <div class="rightbox">
+                <div class="left">
+                  <input type="button" class="btn btn-primary" value="确认订单" @click="affirmOrder(item)">
+                </div>
+                <div class="right">
+                  <input type="button" class="btn btn-warning" value="删除订单" @click="delOrder(item._id)">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</body>
+</html>
+<script src="../libs/js/jquery.js"></script>
+<script src="../libs/js/bootstrap.min.js"></script>
+<script src="../libs/js/vue.js"></script>
+<script src="../libs/js/axios.min.js"></script>
+<script src="../libs/layer/layer.js"></script>
+<script src="../js/sys/order.js"></script>
